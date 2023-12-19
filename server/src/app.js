@@ -43,6 +43,15 @@ app.post("/note", async (req, res) => {
   res.status(201);
 });
 
+// Update Note 
+app.put('/note/:id', async (req, res) => {
+  const {title, description} = req.body
+  console.log(req.params.id)
+  const { data, error } = await supabase.from('Notes').update({title: title, description: description}).eq('id', req.params.id)
+
+  res.send('Updated!');
+})
+
 // Delete Note
 app.delete("/note/:id", async (req, res) => {
   const id = req.params.id;
