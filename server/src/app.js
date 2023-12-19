@@ -43,6 +43,8 @@ app.post("/note", async (req, res) => {
   res.status(201);
 });
 
+
+
 // Delete Note
 app.delete("/note/:id", async (req, res) => {
   const id = req.params.id;
